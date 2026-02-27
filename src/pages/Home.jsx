@@ -3,8 +3,6 @@ import { gsap } from 'gsap';
 import GlowingButton from '../components/Buttons';
 import Info from '../components/Info';
 import Schedule from './Schedule';
-import PrizePool from '../components/prizePool';
-import Wings from '../components/Info';
 import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 import Footer from '../components/Footer';
 import { ArrowDown } from 'lucide-react';
@@ -44,7 +42,7 @@ const Hero = () => {
         const interval = setInterval(() => {
             frameIndex = (frameIndex + 1) % imageArray.length;
             setCurrentFrame(frameIndex);
-        }, 100); // ~12 fps
+        }, 80); // ~12 fps
 
         return () => {
             clearInterval(interval);
@@ -64,7 +62,7 @@ const Hero = () => {
                     {imageArray.length > 0 && (
                         <img
                             src={imageArray[currentFrame]}
-                            className="absolute inset-0 w-full h-full object-cover scale-105 opacity-80"
+                            className="absolute inset-0 w-full h-full object-cover blur-[5px] scale-105 opacity-80"
                             alt="Background Animation"
                         />
                     )}
