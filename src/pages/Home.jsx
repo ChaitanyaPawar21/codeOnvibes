@@ -7,6 +7,9 @@ import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 import Footer from '../components/Footer';
 import { ArrowDown } from 'lucide-react';
 import PrizePool from '../components/prizePool';
+import collegeLogo from '../assets/characters/college-logo.png';
+import hackslashLogo from '../assets/characters/hackslash-logo.png';
+
 const imageModules = import.meta.glob('../assets/homeScreen/*.jpg', { eager: true, import: 'default' });
 const imageArray = Object.values(imageModules);
 
@@ -86,10 +89,17 @@ const Hero = () => {
 
                     <p
                         ref={subtitleRef}
-                        className="text-xl md:text-2xl lg:text-3xl font-tech text-gray-300 mb-12 uppercase tracking-widest text-glow"
+                        className="text-xl md:text-2xl lg:text-3xl font-tech text-gray-300 mb-8 uppercase tracking-widest text-glow"
                     >
                         A Vibe Coding Hackathon
                     </p>
+
+                    {/* Logos */}
+                    <div className="flex items-center justify-center gap-8 mb-12 animate-element opacity-0 translate-y-4" style={{ animation: "fadeInUp 1s ease-out forwards 1.2s" }}>
+                        <img src={collegeLogo} alt="College Logo" className="h-16 md:h-20 lg:h-24 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-transform hover:scale-105" />
+                        <div className="w-px h-12 bg-gray-500/50"></div>
+                        <img src={hackslashLogo} alt="Hackslash Logo" className="h-16 md:h-20 lg:h-24 object-contain filter drop-shadow-[0_0_8px_rgba(79,182,216,0.3)] transition-transform hover:scale-105" />
+                    </div>
 
                     <div
                         ref={buttonsRef}
