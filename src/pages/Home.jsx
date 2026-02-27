@@ -4,7 +4,7 @@ import GlowingButton from '../components/Buttons';
 import Info from '../components/Info';
 import Schedule from './Schedule';
 import PrizePool from '../components/prizePool';
-import Wings from './Wings';
+import Wings from '../components/Info';
 import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 import Footer from '../components/Footer';
 import { ArrowDown } from 'lucide-react';
