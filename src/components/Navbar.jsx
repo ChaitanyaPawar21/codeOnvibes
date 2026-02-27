@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -11,10 +11,10 @@ const Navbar = () => {
     const linksRef = useRef([]);
 
     const navItems = [
-        { name: 'Home', href: '#home' },
-        { name: 'Wings', href: '#wings' },
-        { name: 'Schedule', href: '#schedule' },
-        { name: 'Contact', href: '#contact' }
+        { name: 'Home', to: '/' },
+        { name: 'Wings', to: '/wings' },
+        { name: 'Schedule', to: '/schedule' },
+        { name: 'Contact', to: '/contact' }
     ];
 
     useEffect(() => {
@@ -69,17 +69,17 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
-                    <div className="flex-shrink-0 cursor-pointer text-2xl font-display font-bold text-white text-glow">
+                    <Link to="/" className="flex-shrink-0 cursor-pointer text-2xl font-display font-bold text-white text-glow">
                         CODE ON VIBES
-                    </div>
+                    </Link>
 
                     {/* Desktop Nav */}
                     <div className="hidden md:block">
                         <div className="ml-10 flex items-baseline space-x-8">
                             {navItems.map((item, index) => (
-                                <a
+                                <Link
                                     key={item.name}
-                                    href={item.href}
+                                    to={item.to}
                                     ref={el => linksRef.current[index] = el}
                                     onMouseEnter={handleLinkEnter}
                                     onMouseLeave={handleLinkLeave}
@@ -87,7 +87,7 @@ const Navbar = () => {
                                 >
                                     {item.name}
                                     <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79, 182, 216,0.8)] opacity-0"></div>
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -128,7 +128,7 @@ const Navbar = () => {
                     ))}
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 };
 

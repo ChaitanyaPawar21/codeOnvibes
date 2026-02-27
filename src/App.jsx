@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Wings from './components/Wings';
-import Schedule from './components/Schedule';
-import Contact from './components/Contact';
 import LoadingScreen from './components/LoadingScreen';
+import AppRoute from './routes/AppRoute';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,10 +14,7 @@ function App() {
       <div className={`${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-1000`}>
         <Navbar />
         <main>
-          <Hero />
-          <Wings />
-          <Schedule />
-          <Contact />
+          <AppRoute />
         </main>
       </div>
     </div>
