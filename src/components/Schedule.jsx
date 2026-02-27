@@ -39,8 +39,8 @@ const Schedule = () => {
 
                 <div className="space-y-8">
                     {['Opening Ceremony', 'Hacking Phase 1', 'Midnight Mastery', 'Submissions & judging'].map((item, i) => (
-                        <div key={i} className="fade-slide flex flex-col md:flex-row gap-4 md:gap-12 items-start md:items-center p-6 bg-[var(--color-dark-surface)] border border-gray-800 rounded-lg hover:border-[var(--color-neon-red)] transition-colors duration-300 group">
-                            <div className="text-[var(--color-neon-red)] font-display text-xl md:text-2xl font-bold min-w-[150px] group-hover:text-shadow-[0_0_8px_rgba(255,26,26,0.8)] transition-all">
+                        <div key={i} className="fade-slide flex flex-col md:flex-row gap-4 md:gap-12 items-start md:items-center p-6 bg-[var(--color-dark-surface)] border border-gray-800 rounded-lg hover:border-[var(--color-neon-blue)] transition-colors duration-300 group">
+                            <div className="text-[var(--color-neon-blue)] font-display text-xl md:text-2xl font-bold min-w-[150px] group-hover:text-shadow-[0_0_8px_rgba(79, 182, 216,0.8)] transition-all">
                                 Day {i + 1}
                             </div>
                             <div>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-neon-red: #ff1a1a;
+    --color-neon-blue: #4FB6D8;
     --color-dark-bg: #0a0a0a;
     --color-dark-surface: #121212;
     --color-text-primary: #f0f0f0;
@@ -24,24 +24,24 @@
 /* Custom utility classes */
 @layer utilities {
     .text-glow {
-        text-shadow: 0 0 10px rgba(255, 26, 26, 0.7), 0 0 20px rgba(255, 26, 26, 0.5);
+        text-shadow: 0 0 10px rgba(79, 182, 216, 0.7), 0 0 20px rgba(79, 182, 216, 0.5);
     }
 
     .box-glow {
-        box-shadow: 0 0 15px rgba(255, 26, 26, 0.5);
+        box-shadow: 0 0 15px rgba(79, 182, 216, 0.5);
     }
 
     .box-glow-strong {
-        box-shadow: 0 0 20px rgba(255, 26, 26, 0.8), inset 0 0 10px rgba(255, 26, 26, 0.3);
+        box-shadow: 0 0 20px rgba(79, 182, 216, 0.8), inset 0 0 10px rgba(79, 182, 216, 0.3);
     }
 
     .border-neon {
-        border-color: rgba(255, 26, 26, 0.8);
+        border-color: rgba(79, 182, 216, 0.8);
     }
 }
 
 /* Animations for glitch/hover will be handled via GSAP, but some base CSS is nice */
 ::selection {
-    background: rgba(255, 26, 26, 0.3);
+    background: rgba(79, 182, 216, 0.3);
     color: white;
 }

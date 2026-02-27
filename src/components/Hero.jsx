@@ -68,7 +68,7 @@ const Hero = () => {
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_#0a0a0a_80%)] z-10"></div>
                 <div
                     ref={auraRef}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-[var(--color-neon-red)] opacity-40 blur-[100px] mix-blend-screen"
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-[var(--color-neon-blue)] opacity-40 blur-[100px] mix-blend-screen"
                 ></div>
                 {/* Subtle grid pattern */}
                 <div className="absolute inset-0 z-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,_transparent_1px),_linear-gradient(90deg,rgba(255,255,255,0.05)_1px,_transparent_1px)] bg-[size:50px_50px]"></div>
@@ -78,7 +78,7 @@ const Hero = () => {
             <div className="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
                 <h1
                     ref={titleRef}
-                    className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mb-6 drop-shadow-[0_0_15px_rgba(255,26,26,0.6)] uppercase tracking-tight"
+                    className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mb-6 drop-shadow-[0_0_15px_rgba(79, 182, 216,0.6)] uppercase tracking-tight"
                 >
                     Code On Vibes
                 </h1>
@@ -97,10 +97,10 @@ const Hero = () => {
                     <GlowingButton className="w-full md:w-auto min-w-[200px]">
                         Register Now
                     </GlowingButton>
-                    <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-black">
+                    <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-blue)] hover:text-black">
                         View Problem Statement
                     </GlowingButton>
-                    <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-black">
+                    <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-blue)] hover:text-black">
                         Rulebook
                     </GlowingButton>
                 </div>

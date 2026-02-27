@@ -31,7 +31,7 @@ const Contact = () => {
             ref={sectionRef}
             className="py-32 px-4 flex flex-col items-center justify-center bg-black relative z-10"
         >
-            <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--color-neon-red)] to-transparent opacity-50"></div>
+            <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--color-neon-blue)] to-transparent opacity-50"></div>
 
             <div className="max-w-3xl mx-auto text-center reveal">
                 <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
@@ -42,7 +42,7 @@ const Contact = () => {
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-6">
-                    <a href="mailto:hello@codeonvibes.com" className="inline-block px-8 py-4 border border-[var(--color-neon-red)] text-[var(--color-neon-red)] rounded hover:bg-[var(--color-neon-red)] hover:text-black font-display font-bold tracking-widest transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,26,26,0.6)]">
+                    <a href="mailto:hello@codeonvibes.com" className="inline-block px-8 py-4 border border-[var(--color-neon-blue)] text-[var(--color-neon-blue)] rounded hover:bg-[var(--color-neon-blue)] hover:text-black font-display font-bold tracking-widest transition-all duration-300 hover:shadow-[0_0_20px_rgba(79, 182, 216,0.6)]">
                         EMAIL US
                     </a>
                     <a href="#" className="inline-block px-8 py-4 bg-gray-900 border border-gray-700 text-white rounded hover:border-gray-500 font-display font-bold tracking-widest transition-all duration-300">

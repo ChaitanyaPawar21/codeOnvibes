@@ -11,7 +11,7 @@ const GlowingButton = ({ children, className = '', onClick }) => {
         const handleMouseEnter = () => {
             gsap.to(btn, {
                 scale: 1.05,
-                boxShadow: "0 0 25px rgba(255, 26, 26, 0.8), inset 0 0 10px rgba(255, 26, 26, 0.4)",
+                boxShadow: "0 0 25px rgba(79, 182, 216, 0.8), inset 0 0 10px rgba(79, 182, 216, 0.4)",
                 duration: 0.3,
                 ease: "power2.out"
             });
@@ -31,7 +31,7 @@ const GlowingButton = ({ children, className = '', onClick }) => {
                 scale: 1,
                 x: 0,
                 y: 0,
-                boxShadow: "0 0 15px rgba(255, 26, 26, 0.5)",
+                boxShadow: "0 0 15px rgba(79, 182, 216, 0.5)",
                 duration: 0.3,
                 ease: "power2.out"
             });
