@@ -122,7 +122,6 @@ const Hero = () => {
 
             <section>
                 <Info />
-                <Wings />
                 <PrizePool />
                 <Schedule />
                 <Footer />
