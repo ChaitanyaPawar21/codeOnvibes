@@ -1,29 +1,22 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import GlowingButton from '../components/Buttons';
 import Wings from '../components/Wings';
 import Schedule from '../components/Schedule';
+
+const imageModules = import.meta.glob('../assets/homeScreen/*.jpg', { eager: true, import: 'default' });
+const imageArray = Object.values(imageModules);
 
 const Hero = () => {
     const containerRef = useRef(null);
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
     const buttonsRef = useRef(null);
-    const auraRef = useRef(null);
+    const [currentFrame, setCurrentFrame] = useState(0);
 
     useEffect(() => {
         // Initial Load Animations
         const tl = gsap.timeline();
-
-        // Aura pulse
-        gsap.to(auraRef.current, {
-            scale: 1.1,
-            opacity: 0.6,
-            duration: 3,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        });
 
         // Content fade in
         tl.fromTo(titleRef.current,
@@ -41,22 +34,16 @@ const Hero = () => {
                 "-=0.4"
             );
 
-        // Mouse parallax effect for aura
-        const handleMouseMove = (e) => {
-            const { clientX, clientY } = e;
-            const xPos = (clientX / window.innerWidth - 0.5) * 40;
-            const yPos = (clientY / window.innerHeight - 0.5) * 40;
+        // Background Image Animation Loop
+        let frameIndex = 0;
+        const interval = setInterval(() => {
+            frameIndex = (frameIndex + 1) % imageArray.length;
+            setCurrentFrame(frameIndex);
+        }, 80); // ~12 fps
 
-            gsap.to(auraRef.current, {
-                x: xPos,
-                y: yPos,
-                duration: 1,
-                ease: "power2.out"
-            });
+        return () => {
+            clearInterval(interval);
         };
-
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
     const handleSubmit = () => {
@@ -74,15 +61,23 @@ const Hero = () => {
                 ref={containerRef}
                 className="relative min-h-screen flex items-center justify-center overflow-hidden flex-col flex-wrap bg-[var(--color-dark-bg)]"
             >
-                {/* Background Particles/Aura */}
-                <div className="absolute inset-0 z-0">
+                {/* Background Particles/Aura & Video Sequence */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                    {/* Animated Background Sequence */}
+                    {imageArray.length > 0 && (
+                        <img
+                            src={imageArray[currentFrame]}
+                            className="absolute inset-0 w-full h-full object-cover blur-[5px] scale-105 opacity-80"
+                            alt="Background Animation"
+                        />
+                    )}
+
+                    {/* Dark overlay to make text visible */}
+                    <div className="absolute inset-0 bg-black/60 z-[1] mix-blend-multiply"></div>
+
                     <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_#0a0a0a_80%)] z-10"></div>
-                    <div
-                        ref={auraRef}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-[var(--color-neon-blue)] opacity-40 blur-[100px] mix-blend-screen"
-                    ></div>
                     {/* Subtle grid pattern */}
-                    <div className="absolute inset-0 z-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,_transparent_1px),_linear-gradient(90deg,rgba(255,255,255,0.05)_1px,_transparent_1px)] bg-[size:50px_50px]"></div>
+                    <div className="absolute inset-0 z-[11] opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,_transparent_1px),_linear-gradient(90deg,rgba(255,255,255,0.05)_1px,_transparent_1px)] bg-[size:50px_50px]"></div>
                 </div>
 
                 {/* Main Content */}
