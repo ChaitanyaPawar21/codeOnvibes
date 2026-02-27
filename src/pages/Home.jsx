@@ -68,62 +68,65 @@ const Hero = () => {
     }
 
     return (
-        <section
-            id="home"
-            ref={containerRef}
-            className="relative min-h-screen flex items-center justify-center overflow-hidden flex-col flex-wrap p-26 bg-[var(--color-dark-bg)]"
-        >
-            {/* Background Particles/Aura */}
-            <div className="absolute inset-0 z-0">
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_#0a0a0a_80%)] z-10"></div>
-                <div
-                    ref={auraRef}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-[var(--color-neon-blue)] opacity-40 blur-[100px] mix-blend-screen"
-                ></div>
-                {/* Subtle grid pattern */}
-                <div className="absolute inset-0 z-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,_transparent_1px),_linear-gradient(90deg,rgba(255,255,255,0.05)_1px,_transparent_1px)] bg-[size:50px_50px]"></div>
-            </div>
-
-            {/* Main Content */}
-            <div className="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
-                <h1
-                    ref={titleRef}
-                    className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mb-6 drop-shadow-[0_0_15px_rgba(79, 182, 216,0.6)] uppercase tracking-tight"
-                >
-                    Code On Vibes
-                </h1>
-
-                <p
-                    ref={subtitleRef}
-                    className="text-xl md:text-2xl lg:text-3xl font-tech text-gray-300 mb-12 uppercase tracking-widest text-glow"
-                >
-                    A Vibe Coding Hackathon
-                </p>
-
-                <div
-                    ref={buttonsRef}
-                    className="flex flex-col md:flex-row gap-6 items-center justify-center w-full"
-                >
-                    <GlowingButton onClick={handleSubmit}
-                        type="submit"
-                        className="w-full md:w-auto min-w-[200px] bg-white/5 text-white box-shadow-none cursor-pointer hover:bg-[var(--color-neon-red)] hover:text-black">
-                        Register Now
-                    </GlowingButton>
-                    <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-black">
-                        View Problem Statement
-                    </GlowingButton>
-                    <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-black">
-                        Rulebook
-                    </GlowingButton>
+        <>
+            <section
+                id="home"
+                ref={containerRef}
+                className="relative min-h-screen flex items-center justify-center overflow-hidden flex-col flex-wrap bg-[var(--color-dark-bg)]"
+            >
+                {/* Background Particles/Aura */}
+                <div className="absolute inset-0 z-0">
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_transparent_0%,_#0a0a0a_80%)] z-10"></div>
+                    <div
+                        ref={auraRef}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] md:w-[40vw] md:h-[40vw] rounded-full bg-[var(--color-neon-blue)] opacity-40 blur-[100px] mix-blend-screen"
+                    ></div>
+                    {/* Subtle grid pattern */}
+                    <div className="absolute inset-0 z-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,_transparent_1px),_linear-gradient(90deg,rgba(255,255,255,0.05)_1px,_transparent_1px)] bg-[size:50px_50px]"></div>
                 </div>
-            </div>
-            <div className="mt-12">
+
+                {/* Main Content */}
+                <div className="relative z-20 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+                    <h1
+                        ref={titleRef}
+                        className="text-5xl md:text-7xl lg:text-8xl font-display font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mb-6 drop-shadow-[0_0_15px_rgba(79, 182, 216,0.6)] uppercase tracking-tight"
+                    >
+                        Code On Vibes
+                    </h1>
+
+                    <p
+                        ref={subtitleRef}
+                        className="text-xl md:text-2xl lg:text-3xl font-tech text-gray-300 mb-12 uppercase tracking-widest text-glow"
+                    >
+                        A Vibe Coding Hackathon
+                    </p>
+
+                    <div
+                        ref={buttonsRef}
+                        className="flex flex-col md:flex-row gap-6 items-center justify-center w-full"
+                    >
+                        <GlowingButton onClick={handleSubmit}
+                            type="submit"
+                            className="w-full md:w-auto min-w-[200px] bg-white/5 text-white box-shadow-none cursor-pointer hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9]">
+                            Register Now
+                        </GlowingButton>
+                        <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9] cursor-pointer">
+                            View Problem Statement
+                        </GlowingButton>
+                        <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9] cursor-pointer">
+                            Rulebook
+                        </GlowingButton>
+                    </div>
+
+                </div>
+            </section>
+
+            <section>
                 <Wings />
-            </div>
-            <div className='mt-12'>
                 <Schedule />
-            </div>
-        </section>
+            </section>
+        </>
+
     );
 };
 

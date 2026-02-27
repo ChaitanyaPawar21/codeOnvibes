@@ -86,13 +86,8 @@ const Navbar = () => {
                                     className="relative text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-tech font-medium uppercase tracking-wide transition-colors"
                                 >
                                     {item.name}
-<<<<<<< HEAD
-                                    <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-red)] shadow-[0_0_8px_rgba(255,26,26,0.8)] opacity-0"></div>
-                                </Link>
-=======
                                     <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79, 182, 216,0.8)] opacity-0"></div>
-                                </a>
->>>>>>> origin/main
+                                </Link>
                             ))}
                         </div>
                     </div>
@@ -133,7 +128,7 @@ const Navbar = () => {
                     ))}
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 };
 
