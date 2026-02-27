@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import GlowingButton from '../components/Buttons';
-import Wings from './Wings';
+import Info from '../components/Info';
 import Schedule from './Schedule';
 import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 import Footer from '../components/Footer';
@@ -114,7 +114,7 @@ const Hero = () => {
             </section>
 
             <section>
-                <Wings />
+                <Info />
                 <Schedule />
                 <Footer />
             </section>

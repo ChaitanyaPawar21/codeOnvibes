@@ -1,5 +1,5 @@
 import Home from '../pages/Home';
-import Wings from '../pages/Wings';
+import Wings from '../components/Info';
 import Schedule from '../pages/Schedule';
 import Contact from '../pages/Contact';
 import { Routes, Route } from 'react-router-dom';
