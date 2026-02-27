@@ -69,7 +69,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     {/* Left — Logo */}
-                    <Link to="/" className="flex-1 flex-shrink-0 cursor-pointer text-4xl font-display font-bold text-white text-glow">
+                    <Link to="/" className="flex-1 flex-shrink-0 cursor-pointer text-2xl font-display font-bold text-white text-glow">
                         CODE ON VIBES
                     </Link>
 
