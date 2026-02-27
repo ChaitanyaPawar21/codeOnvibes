@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 const scheduleDates = [
     '3 March',
     '12 March',
-    '15 March',
+    '14 March',
     '21 March'
 ];
 
@@ -19,7 +19,7 @@ const scheduleEvents = [
 ];
 
 const scheduleDescriptions = [
-    'Time and details to be announced. Stay tuned to the latest updates.',
+    'Offic',
     'Time and details to be announced. Stay tuned to the latest updates.',
     'Time and details to be announced. Stay tuned to the latest updates.',
     'Time and details to be announced. Stay tuned to the latest updates.'
