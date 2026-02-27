@@ -117,14 +117,14 @@ const Navbar = () => {
                 </div>
                 <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                     {navItems.map((item) => (
-                        <a
+                        <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.to}
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="block px-3 py-4 text-center text-lg font-tech font-medium text-gray-300 hover:text-white hover:bg-[rgba(79, 182, 216,0.1)] rounded-md uppercase tracking-wider transition-colors"
                         >
                             {item.name}
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>

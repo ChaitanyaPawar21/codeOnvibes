@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import GlowingButton from '../components/Buttons';
-import Wings from '../components/Wings';
-import Schedule from '../components/Schedule';
+import Wings from './Wings';
+import Schedule from './Schedule';
 import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
+import Footer from '../components/Footer';
 
 const Hero = () => {
     const containerRef = useRef(null);
@@ -120,6 +121,7 @@ const Hero = () => {
             <section>
                 <Wings />
                 <Schedule />
+                <Footer />
             </section>
         </>
 

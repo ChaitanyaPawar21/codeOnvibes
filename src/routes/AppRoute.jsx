@@ -1,7 +1,7 @@
 import Home from '../pages/Home';
-import Wings from '../components/Wings';
-import Schedule from '../components/Schedule';
-import Contact from '../components/Contact';
+import Wings from '../pages/Wings';
+import Schedule from '../pages/Schedule';
+import Contact from '../pages/Contact';
 import { Routes, Route } from 'react-router-dom';
 
 const AppRoute = () => {

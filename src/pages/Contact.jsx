@@ -47,10 +47,6 @@ const Contact = () => {
                     </a>
                 </div>
             </div>
-
-            <footer className="w-full mt-32 text-center text-gray-600 font-tech text-sm">
-                &copy; 2026 Code On Vibes. All Rights Reserved.
-            </footer>
         </section>
     );
 };
