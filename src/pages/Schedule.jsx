@@ -1,8 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+
+const imageModules = import.meta.glob('../assets/scedule/*.jpg', { eager: true });
+const imageUrls = Object.keys(imageModules).sort().map(key => imageModules[key].default);
 
 const scheduleDates = [
     '3 March',
@@ -19,14 +22,15 @@ const scheduleEvents = [
 ];
 
 const scheduleDescriptions = [
-    'Offic',
-    'Time and details to be announced. Stay tuned to the latest updates.',
-    'Time and details to be announced. Stay tuned to the latest updates.',
-    'Time and details to be announced. Stay tuned to the latest updates.'
+    'Official Problem statement released for Round 1 along with PPT format.',
+    '',
+    'Teams sort-listed on the Basis of PPT Round. Sorted teams will be notified via text and also selected teams pdf will be displayed on website',
+    'Round 2 that is offline Hackathon. Time and details to be announced. Stay tuned to the latest updates.'
 ];
 
 const Schedule = () => {
     const sectionRef = useRef(null);
+    const [currentFrame, setCurrentFrame] = useState(0);
 
     useEffect(() => {
         const el = sectionRef.current;
@@ -45,15 +49,37 @@ const Schedule = () => {
                 }
             }
         );
+
+        // Preload images into browser cache
+        imageUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+        });
+
+        // Loop the frames around 12 FPS
+        const intervalId = setInterval(() => {
+            setCurrentFrame(prev => (prev + 1) % imageUrls.length);
+        }, 80);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     return (
         <section
             id="schedule"
             ref={sectionRef}
-            className="py-32 px-4 min-h-[80vh] flex flex-col items-center bg-[var(--color-dark-bg)] relative z-10 border-t border-gray-900"
+            className="py-32 px-4 min-h-[80vh] flex flex-col items-center bg-[var(--color-dark-bg)] relative z-10 border-t border-gray-900 overflow-hidden"
         >
-            <div className="max-w-4xl mx-auto w-full">
+            {/* Background Image Sequence */}
+            {imageUrls.length > 0 && (
+                <img
+                    src={imageUrls[currentFrame]}
+                    alt="Schedule Background"
+                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none"
+                />
+            )}
+
+            <div className="max-w-4xl mx-auto w-full relative z-10">
                 <h2 className="fade-slide text-4xl md:text-6xl font-display font-bold text-center text-white mb-16 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                     KEEP YOUR EYE ON SCHEDULE
                 </h2>

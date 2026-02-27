@@ -73,10 +73,10 @@ const Wings = () => {
                     <img
                         src={currentImageUrl}
                         alt="Background Animation"
-                        className="w-full h-full object-cover opacity-30" // Lower opacity to let text show
+                        className="w-full h-full object-cover opacity-45" // Lower opacity to let text show
                     />
                     {/* Dark/Blur Overlay for text readability */}
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+                    <div className="absolute inset-0 bg-black/60"></div>
                 </div>
             )}
 
