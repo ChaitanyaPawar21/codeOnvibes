@@ -5,6 +5,7 @@ import Info from '../components/Info';
 import Schedule from './Schedule';
 import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 import Footer from '../components/Footer';
+import { ArrowDown } from 'lucide-react';
 
 const imageModules = import.meta.glob('../assets/homeScreen/*.jpg', { eager: true, import: 'default' });
 const imageArray = Object.values(imageModules);
@@ -110,6 +111,10 @@ const Hero = () => {
                             Rulebook
                         </GlowingButton>
                     </div>
+                </div>
+                <div className='absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center justify-center gap-2 z-30 cursor-pointer group'>
+                    <p className='text-gray-400 font-tech text-xs uppercase tracking-[0.3em] group-hover:text-[var(--color-neon-blue)] transition-colors duration-300 animate-pulse'>Scroll Down</p>
+                    <ArrowDown size={22} className="text-[var(--color-neon-blue)] animate-bounce drop-shadow-[0_0_8px_rgba(79,182,216,0.8)]" />
                 </div>
             </section>
 
