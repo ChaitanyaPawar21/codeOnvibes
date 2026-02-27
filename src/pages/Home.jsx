@@ -6,7 +6,7 @@ import Schedule from './Schedule';
 import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 import Footer from '../components/Footer';
 import { ArrowDown } from 'lucide-react';
-
+import PrizePool from '../components/prizePool';
 const imageModules = import.meta.glob('../assets/homeScreen/*.jpg', { eager: true, import: 'default' });
 const imageArray = Object.values(imageModules);
 
@@ -120,7 +120,6 @@ const Hero = () => {
 
             <section>
                 <Info />
-                <Wings />
                 <PrizePool />
                 <Schedule />
                 <Footer />
