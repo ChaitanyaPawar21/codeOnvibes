@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import GlowingButton from '../components/Buttons';
 import Wings from '../components/Wings';
 import Schedule from '../components/Schedule';
+import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 
 const Hero = () => {
     const containerRef = useRef(null);
@@ -59,14 +60,6 @@ const Hero = () => {
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
 
-    const handleSubmit = () => {
-        window.location.href = "https://www.wings2k26.com/events/codevibes/register";
-    }
-
-    const handlePdf = () => {
-        window.location.href = "./assets/CodeOnVibes.pdf"
-    }
-
     return (
         <>
             <section
@@ -105,19 +98,22 @@ const Hero = () => {
                         ref={buttonsRef}
                         className="flex flex-col md:flex-row gap-6 items-center justify-center w-full"
                     >
-                        <GlowingButton onClick={handleSubmit}
-                            type="submit"
+                        <GlowingButton onClick={() => {
+                            window.location.href = "https://www.wings2k26.com/events/codevibes/register";
+                        }}
                             className="w-full md:w-auto min-w-[200px] bg-white/5 text-white box-shadow-none cursor-pointer hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9]">
                             Register Now
                         </GlowingButton>
                         <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9] cursor-pointer">
                             View Problem Statement
                         </GlowingButton>
-                        <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9] cursor-pointer">
+                        <GlowingButton onClick={() => {
+                            window.open(codeOnVibesPdf, '_blank');
+                        }}
+                            className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9] cursor-pointer">
                             Rulebook
                         </GlowingButton>
                     </div>
-
                 </div>
             </section>
 
