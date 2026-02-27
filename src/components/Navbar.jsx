@@ -12,7 +12,6 @@ const Navbar = () => {
 
     const navItems = [
         { name: 'Home', to: '/' },
-        { name: 'Wings', to: '/wings' },
         { name: 'Schedule', to: '/schedule' },
         { name: 'Contact', to: '/contact' }
     ];
@@ -89,6 +88,13 @@ const Navbar = () => {
                                     <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79, 182, 216,0.8)] opacity-0"></div>
                                 </Link>
                             ))}
+                            <div>
+                                <a href="https://www.wings2k26.com/" target="_blank" rel="noopener noreferrer" className="relative text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-tech font-medium uppercase tracking-wide transition-colors">
+                                    Wings
+                                    <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79, 182, 216,0.8)] opacity-0"></div>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
 
