@@ -45,9 +45,6 @@ const Contact = () => {
                     <a href="mailto:hello@codeonvibes.com" className="inline-block px-8 py-4 border border-[var(--color-neon-red)] text-[var(--color-neon-red)] rounded hover:bg-[var(--color-neon-red)] hover:text-black font-display font-bold tracking-widest transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,26,26,0.6)]">
                         EMAIL US
                     </a>
-                    <a href="#" className="inline-block px-8 py-4 bg-gray-900 border border-gray-700 text-white rounded hover:border-gray-500 font-display font-bold tracking-widest transition-all duration-300">
-                        DISCORD
-                    </a>
                 </div>
             </div>
 
