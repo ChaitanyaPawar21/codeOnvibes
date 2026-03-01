@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import wingsLogo from '../assets/Wings-logo.png';
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -70,14 +71,14 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
-                    {/* Logo */}
-                    <Link to="/" className="flex-shrink-0 cursor-pointer text-2xl font-display font-bold text-white text-glow">
+                    {/* Left — Logo */}
+                    <Link to="/" className="flex-1 flex-shrink-0 cursor-pointer text-2xl font-display font-bold text-white text-glow">
                         CODE ON VIBES
                     </Link>
 
-                    {/* Desktop Nav */}
-                    <div className="hidden md:block">
-                        <div className="ml-10 flex items-baseline space-x-8">
+                    {/* Center — Desktop Nav */}
+                    <div className="hidden md:flex flex-1 items-center justify-center">
+                        <div className="flex items-center space-x-6">
                             {navItems.map((item, index) => (
                                 <Link
                                     key={item.name}
@@ -85,20 +86,21 @@ const Navbar = () => {
                                     ref={el => linksRef.current[index] = el}
                                     onMouseEnter={handleLinkEnter}
                                     onMouseLeave={handleLinkLeave}
-                                    className="relative text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-tech font-medium uppercase tracking-wide transition-colors"
+                                    className="relative text-gray-300 hover:text-white px-3 py-2 rounded-md text-base font-tech font-medium uppercase tracking-wide transition-colors"
                                 >
                                     {item.name}
-                                    <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79, 182, 216,0.8)] opacity-0"></div>
+                                    <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79,182,216,0.8)] opacity-0"></div>
                                 </Link>
                             ))}
-                            <div>
-                                <a href="https://www.wings2k26.com/" target="_blank" rel="noopener noreferrer" className="relative text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-tech font-medium uppercase tracking-wide transition-colors">
-                                    Wings
-                                    <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79, 182, 216,0.8)] opacity-0"></div>
-                                </a>
-                            </div>
-
                         </div>
+                    </div>
+
+                    {/* Right — Wings Logo */}
+                    <div className="hidden md:flex flex-1 items-center justify-end">
+                        <a href="https://www.wings2k26.com/" target="_blank" rel="noopener noreferrer" className="relative flex items-center px-3 py-2 rounded-md transition-all duration-300 group">
+                            <img src={wingsLogo} alt="Wings 2K26" className="h-14 w-auto object-contain opacity-85 group-hover:opacity-100 group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_rgba(79,182,216,0.7)] transition-all duration-300" />
+                            <div className="underline-anim absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--color-neon-blue)] shadow-[0_0_8px_rgba(79,182,216,0.8)] opacity-0"></div>
+                        </a>
                     </div>
 
                     {/* Mobile menu button */}
