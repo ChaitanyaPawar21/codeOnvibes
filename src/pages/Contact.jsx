@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import bgVideo from '../assets/contact/gojo.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,11 +30,25 @@ const Contact = () => {
         <section
             id="contact"
             ref={sectionRef}
-            className="py-32 px-4 flex flex-col items-center justify-center bg-black relative z-10"
+            className="py-32 px-4 flex flex-col items-center justify-center relative z-10 overflow-hidden"
         >
-            <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--color-neon-blue)] to-transparent opacity-50"></div>
+            {/* Background Video */}
+            <div className="absolute inset-0 z-0">
+                <video
+                    src={bgVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover opacity-60"
+                />
+                {/* Dark/Blur Overlay for text readability */}
+                <div className="absolute inset-0 bg-black/70"></div>
+            </div>
 
-            <div className="max-w-3xl mx-auto text-center reveal">
+            <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-[var(--color-neon-blue)] to-transparent opacity-50 z-10"></div>
+
+            <div className="max-w-3xl mx-auto text-center reveal relative z-10">
                 <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6 text-glow">
                     CONNECT WITH US
                 </h2>
@@ -49,12 +64,12 @@ const Contact = () => {
                 </div>
             </div>
 
-            <div className="max-w-4xl mx-auto w-full reveal">
+            <div className="max-w-4xl mx-auto w-full reveal relative z-10">
                 <h1 className="text-3xl md:text-4xl font-display font-bold text-white text-center mb-12 tracking-wide">Contact</h1>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                     {/* Event Head Card */}
-                    <div className="bg-[var(--color-dark-surface)] border border-gray-800 rounded-xl p-6 text-center hover:border-[var(--color-neon-blue)]/60 transition-all duration-300 hover:shadow-[0_0_25px_rgba(79,182,216,0.15)] group">
+                    <div className="bg-[var(--color-dark-surface)]/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 text-center hover:border-[var(--color-neon-blue)]/60 transition-all duration-300 hover:shadow-[0_0_25px_rgba(79,182,216,0.15)] group">
                         <h3 className="text-sm font-tech uppercase tracking-[0.2em] text-[var(--color-neon-blue)] mb-4 opacity-80">Event Head</h3>
                         <p className="text-xl font-tech font-semibold text-white mb-3">Chaitanya Pawar</p>
                         <p className="flex items-center justify-center gap-2 text-gray-400 font-tech text-sm group-hover:text-[var(--color-neon-blue)] transition-colors duration-300">
@@ -64,7 +79,7 @@ const Contact = () => {
                     </div>
 
                     {/* Event Co-Head Card */}
-                    <div className="bg-[var(--color-dark-surface)] border border-gray-800 rounded-xl p-6 text-center hover:border-[var(--color-neon-blue)]/60 transition-all duration-300 hover:shadow-[0_0_25px_rgba(79,182,216,0.15)] group">
+                    <div className="bg-[var(--color-dark-surface)]/80 backdrop-blur-sm border border-gray-800 rounded-xl p-6 text-center hover:border-[var(--color-neon-blue)]/60 transition-all duration-300 hover:shadow-[0_0_25px_rgba(79,182,216,0.15)] group">
                         <h3 className="text-sm font-tech uppercase tracking-[0.2em] text-[var(--color-neon-blue)] mb-4 opacity-80">Event Co-Head</h3>
                         <p className="text-xl font-tech font-semibold text-white mb-3">Mourya Maradwar</p>
                         <p className="flex items-center justify-center gap-2 text-gray-400 font-tech text-sm group-hover:text-[var(--color-neon-blue)] transition-colors duration-300">

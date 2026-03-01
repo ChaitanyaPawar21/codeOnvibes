@@ -1,11 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import bgVideo from '../assets/scedule/uchiha.mp4';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const imageModules = import.meta.glob('../assets/scedule/*.jpg', { eager: true });
-const imageUrls = Object.keys(imageModules).sort().map(key => imageModules[key].default);
 
 const scheduleDates = [
     '3 March',
@@ -30,7 +28,6 @@ const scheduleDescriptions = [
 
 const Schedule = () => {
     const sectionRef = useRef(null);
-    const [currentFrame, setCurrentFrame] = useState(0);
 
     useEffect(() => {
         const el = sectionRef.current;
@@ -49,19 +46,6 @@ const Schedule = () => {
                 }
             }
         );
-
-        // Preload images into browser cache
-        imageUrls.forEach(url => {
-            const img = new Image();
-            img.src = url;
-        });
-
-        // Loop the frames around 12 FPS
-        const intervalId = setInterval(() => {
-            setCurrentFrame(prev => (prev + 1) % imageUrls.length);
-        }, 80);
-
-        return () => clearInterval(intervalId);
     }, []);
 
     return (
@@ -70,14 +54,15 @@ const Schedule = () => {
             ref={sectionRef}
             className="py-32 px-4 min-h-[80vh] flex flex-col items-center bg-[var(--color-dark-bg)] relative z-10 border-t border-gray-900 overflow-hidden"
         >
-            {/* Background Image Sequence */}
-            {imageUrls.length > 0 && (
-                <img
-                    src={imageUrls[currentFrame]}
-                    alt="Schedule Background"
-                    className="absolute inset-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none"
-                />
-            )}
+            {/* Background Video Sequence */}
+            <video
+                src={bgVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover z-0 opacity-20 pointer-events-none"
+            />
 
             <div className="max-w-4xl mx-auto w-full relative z-10">
                 <h2 className="fade-slide text-4xl md:text-6xl font-display font-bold text-center text-white mb-16 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">

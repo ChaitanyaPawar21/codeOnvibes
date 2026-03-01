@@ -68,8 +68,8 @@ const LoadingScreen = ({ onFinish }) => {
                                     onComplete: onFinish
                                 });
                             }
-                            // Loop back to start of transformation so it doesn't freeze while fading
-                            return 32;
+                            // Hold on the very last frame while fading
+                            return totalFrames - 1;
                         }
                         return nextFrame;
                     }

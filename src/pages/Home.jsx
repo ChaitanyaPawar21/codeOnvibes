@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import GlowingButton from '../components/Buttons';
 import Info from '../components/Info';
@@ -9,16 +9,13 @@ import Footer from '../components/Footer';
 import { ArrowDown } from 'lucide-react';
 import collegeLogo from '../assets/characters/college-logo.png';
 import hackslashLogo from '../assets/characters/hackslash-logo.png';
-
-const imageModules = import.meta.glob('../assets/homeScreen/*.jpg', { eager: true, import: 'default' });
-const imageArray = Object.values(imageModules);
+import bgVideo from '../assets/homeScreen/tanjiro.mp4';
 
 const Hero = () => {
     const containerRef = useRef(null);
     const titleRef = useRef(null);
     const subtitleRef = useRef(null);
     const buttonsRef = useRef(null);
-    const [currentFrame, setCurrentFrame] = useState(0);
 
     useEffect(() => {
         // Initial Load Animations
@@ -39,17 +36,6 @@ const Hero = () => {
                 { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.7)" },
                 "-=0.4"
             );
-
-        // Background Image Animation Loop
-        let frameIndex = 0;
-        const interval = setInterval(() => {
-            frameIndex = (frameIndex + 1) % imageArray.length;
-            setCurrentFrame(frameIndex);
-        }, 100); // ~12 fps
-
-        return () => {
-            clearInterval(interval);
-        };
     }, []);
 
     return (
@@ -61,14 +47,15 @@ const Hero = () => {
             >
                 {/* Background Particles/Aura & Video Sequence */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
-                    {/* Animated Background Sequence */}
-                    {imageArray.length > 0 && (
-                        <img
-                            src={imageArray[currentFrame]}
-                            className="absolute inset-0 w-full h-full object-cover scale-105 opacity-80"
-                            alt="Background Animation"
-                        />
-                    )}
+                    {/* Animated Background Video */}
+                    <video
+                        src={bgVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover scale-105 opacity-80"
+                    />
 
                     {/* Dark overlay to make text visible */}
                     <div className="absolute inset-0 bg-black/60 z-[1] mix-blend-multiply"></div>
@@ -95,10 +82,10 @@ const Hero = () => {
                     </p>
 
                     {/* Logos */}
-                    <div className="flex items-center justify-center gap-8 mb-12 animate-element opacity-0 translate-y-4" style={{ animation: "fadeInUp 1s ease-out forwards 1.2s" }}>
-                        <img src={collegeLogo} alt="College Logo" className="h-16 md:h-20 lg:h-24 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-transform hover:scale-105" />
+                    <div className="flex items-center justify-center gap-8 mb-12">
+                        <img src={collegeLogo} alt="College Logo" className="h-32 md:h-32 lg:h-32 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-transform hover:scale-105" />
                         <div className="w-px h-12 bg-gray-500/50"></div>
-                        <img src={hackslashLogo} alt="Hackslash Logo" className="h-16 md:h-20 lg:h-24 object-contain filter drop-shadow-[0_0_8px_rgba(79,182,216,0.3)] transition-transform hover:scale-105" />
+                        <img src={hackslashLogo} alt="Hackslash Logo" className="h-48 md:h-48 lg:h-48 object-contain filter drop-shadow-[0_0_8px_rgba(79,182,216,0.3)] transition-transform hover:scale-105" />
                     </div>
 
                     <div

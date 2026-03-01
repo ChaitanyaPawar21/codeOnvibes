@@ -53,16 +53,19 @@ const Navbar = () => {
     // Mobile menu animation
     useEffect(() => {
         if (isMobileMenuOpen) {
-            gsap.to(menuRef.current, { x: 0, duration: 0.5, ease: 'power3.out' });
+            gsap.fromTo(menuRef.current,
+                { height: 0, opacity: 0 },
+                { height: 'auto', opacity: 1, duration: 0.3, ease: 'power3.out', display: 'block' }
+            );
         } else {
-            gsap.to(menuRef.current, { x: '100%', duration: 0.5, ease: 'power3.in' });
+            gsap.to(menuRef.current, { height: 0, opacity: 0, duration: 0.3, ease: 'power3.in', display: 'none' });
         }
     }, [isMobileMenuOpen]);
 
     return (
         <nav
             ref={navRef}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md shadow-[0_4px_30px_rgba(79, 182, 216,0.1)]' : 'bg-transparent'
+            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-black shadow-[0_4px_30px_rgba(79, 182, 216,0.1)]' : 'bg-transparent'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,10 +104,10 @@ const Navbar = () => {
                     {/* Mobile menu button */}
                     <div className="md:hidden flex items-center">
                         <button
-                            onClick={() => setIsMobileMenuOpen(true)}
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
                         >
-                            <Menu size={28} className="drop-shadow-[0_0_5px_rgba(79, 182, 216,0.8)]" />
+                            {isMobileMenuOpen ? <X size={28} className="drop-shadow-[0_0_5px_rgba(79, 182, 216,0.8)]" /> : <Menu size={28} className="drop-shadow-[0_0_5px_rgba(79, 182, 216,0.8)]" />}
                         </button>
                     </div>
                 </div>
@@ -113,25 +116,23 @@ const Navbar = () => {
             {/* Mobile Menu */}
             <div
                 ref={menuRef}
-                className="fixed inset-y-0 right-0 w-64 bg-black/95 backdrop-blur-xl border-l border-[var(--color-neon-blue)] z-50 transform translate-x-full md:hidden"
-                style={{ boxShadow: '-5px 0 20px rgba(79, 182, 216,0.2)' }}
+                className="absolute top-20 left-0 w-full bg-black border-b border-[var(--color-neon-blue)] z-40 md:hidden"
+                style={{ display: 'none', overflow: 'hidden' }}
             >
-                <div className="p-5 flex justify-end">
-                    <button onClick={() => setIsMobileMenuOpen(false)} className="text-gray-300 hover:text-white">
-                        <X size={28} />
-                    </button>
-                </div>
-                <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="px-4 py-6 flex flex-col items-center space-y-4">
                     {navItems.map((item) => (
                         <Link
                             key={item.name}
                             to={item.to}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="block px-3 py-4 text-center text-lg font-tech font-medium text-gray-300 hover:text-white hover:bg-[rgba(79, 182, 216,0.1)] rounded-md uppercase tracking-wider transition-colors"
+                            className="block text-xl font-tech font-medium text-gray-300 hover:text-white hover:bg-[rgba(79, 182, 216,0.1)] rounded-md uppercase tracking-wider transition-colors w-full text-center py-3"
                         >
                             {item.name}
                         </Link>
                     ))}
+                    <a href="https://www.wings2k26.com/" target="_blank" rel="noopener noreferrer" className="block text-xl font-tech font-medium text-gray-300 hover:text-white hover:bg-[rgba(79, 182, 216,0.1)] rounded-md uppercase tracking-wider transition-colors w-full text-center py-3">
+                        Wings
+                    </a>
                 </div>
             </div>
         </nav >
