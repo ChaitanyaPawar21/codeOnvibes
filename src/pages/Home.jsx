@@ -3,17 +3,20 @@ import { gsap } from 'gsap';
 import GlowingButton from '../components/Buttons';
 import Info from '../components/Info';
 import Schedule from './Schedule';
+import PrizePool from '../components/prizePool';
 import codeOnVibesPdf from '../assets/codeOnVibes.pdf';
 import Footer from '../components/Footer';
 import { ArrowDown } from 'lucide-react';
-import PrizePool from '../components/prizePool';
+import { useNavigate } from 'react-router-dom';
 import collegeLogo from '../assets/characters/college-logo.png';
 import hackslashLogo from '../assets/characters/hackslash-logo.png';
 import bgVideo from '../assets/homeScreen/tanjiro.mp4';
+import problemStatementPdf from '../assets/problemStatement/CODE.pdf';
 
 const Hero = () => {
     const containerRef = useRef(null);
     const titleRef = useRef(null);
+    const navigate = useNavigate();
     const subtitleRef = useRef(null);
     const buttonsRef = useRef(null);
 
@@ -36,20 +39,6 @@ const Hero = () => {
                 { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.7)" },
                 "-=0.4"
             );
-<<<<<<< HEAD
-=======
-
-        // Background Image Animation Loop
-        let frameIndex = 0;
-        const interval = setInterval(() => {
-            frameIndex = (frameIndex + 1) % imageArray.length;
-            setCurrentFrame(frameIndex);
-        }, 80); // ~12 fps
-
-        return () => {
-            clearInterval(interval);
-        };
->>>>>>> 75af63a8f073b1ba0a4c7360365907df76a2eea8
     }, []);
 
     return (
@@ -61,7 +50,6 @@ const Hero = () => {
             >
                 {/* Background Particles/Aura & Video Sequence */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
-<<<<<<< HEAD
                     {/* Animated Background Video */}
                     <video
                         src={bgVideo}
@@ -71,16 +59,6 @@ const Hero = () => {
                         playsInline
                         className="absolute inset-0 w-full h-full object-cover scale-105 opacity-80"
                     />
-=======
-                    {/* Animated Background Sequence */}
-                    {imageArray.length > 0 && (
-                        <img
-                            src={imageArray[currentFrame]}
-                            className="absolute inset-0 w-full h-full object-cover blur-[5px] scale-105 opacity-80"
-                            alt="Background Animation"
-                        />
-                    )}
->>>>>>> 75af63a8f073b1ba0a4c7360365907df76a2eea8
 
                     {/* Dark overlay to make text visible */}
                     <div className="absolute inset-0 bg-black/60 z-[1] mix-blend-multiply"></div>
@@ -118,12 +96,14 @@ const Hero = () => {
                         className="flex flex-col md:flex-row gap-6 items-center justify-center w-full"
                     >
                         <GlowingButton onClick={() => {
-                            window.location.href = "https://www.wings2k26.com/events/codevibes/register";
+                            navigate('/register');
                         }}
                             className="w-full md:w-auto min-w-[200px] bg-white/5 text-white box-shadow-none cursor-pointer hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9]">
-                            Register Now
+                            Round 1 (online)
                         </GlowingButton>
-                        <GlowingButton className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9] cursor-pointer">
+                        <GlowingButton onClick={() => {
+                            window.open(problemStatementPdf, '_blank');
+                        }} className="w-full md:w-auto min-w-[200px] border-none bg-white/5 text-white box-shadow-none hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9] cursor-pointer">
                             View Problem Statement
                         </GlowingButton>
                         <GlowingButton onClick={() => {
