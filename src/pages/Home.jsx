@@ -99,7 +99,7 @@ const Hero = () => {
                             navigate('/register');
                         }}
                             className="w-full md:w-auto min-w-[200px] bg-white/5 text-white box-shadow-none cursor-pointer hover:bg-[var(--color-neon-red)] hover:text-[#50b7d9]">
-                            Round 1 (online)
+                            Round 1 (Online)
                         </GlowingButton>
                         <GlowingButton onClick={() => {
                             window.open(problemStatementPdf, '_blank');
