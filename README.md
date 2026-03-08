@@ -108,20 +108,31 @@ codeOnvibes/
 │   └── vite.svg                          # Favicon
 ├── src/
 │   ├── assets/
+│   │   ├── characters/                   # Character images (college-logo, hackslash-logo, deku)
+│   │   ├── codeONvibes/                  # Info section background video (luffy-1.mp4)
+│   │   ├── contact/                      # Contact page background video (gojo.mp4)
+│   │   ├── homeScreen/                   # Home hero background video (tanjiro.mp4)
 │   │   ├── loadingScreen/                # 36 GIF frames for the loading animation
-│   │   │   ├── frame_00_delay-0.1s.gif
-│   │   │   ├── ...
-│   │   │   └── frame_35_delay-0.1s - Copy.gif
+│   │   ├── problemStatement/             # Problem statement PDF (CODE.pdf)
+│   │   ├── register/                     # Register page background video (eren.mp4)
+│   │   ├── scedule/                      # Schedule background video (uchiha.mp4)
+│   │   ├── Code-on-vibes.pptx            # Downloadable PPT format
+│   │   ├── codeOnVibes.pdf               # Rulebook PDF
+│   │   ├── faviIcon.png                  # Favicon source image
+│   │   ├── Wings-logo.png                # Wings event logo
 │   │   └── react.svg
 │   ├── components/
 │   │   ├── Buttons.jsx                   # GlowingButton — GSAP hover glow & micro-glitch
-│   │   ├── Contact.jsx                   # Contact CTA section with scroll-reveal
+│   │   ├── Footer.jsx                    # Venue location, Google Maps link & copyright
+│   │   ├── Info.jsx                      # "Code On Vibes" about/info section with video bg
 │   │   ├── LoadingScreen.jsx             # Frame-by-frame animated intro screen
 │   │   ├── Navbar.jsx                    # Fixed responsive navbar with mobile drawer
-│   │   ├── Schedule.jsx                  # Event schedule timeline with stagger animation
-│   │   └── Wings.jsx                     # Hackathon category wings/cards section
+│   │   └── prizePool.jsx                 # ₹32,500 prize pool section with character image
 │   ├── pages/
-│   │   └── Home.jsx                      # Homepage — Hero + Wings + Schedule sections
+│   │   ├── Contact.jsx                   # Contact page with organizers & social links
+│   │   ├── Home.jsx                      # Homepage — Hero + Info + PrizePool + Schedule + Footer
+│   │   ├── Register.jsx                  # Registration portal (PPT download, problem statement, submit)
+│   │   └── Schedule.jsx                  # Event schedule timeline with dates & stagger animation
 │   ├── routes/
 │   │   └── AppRoute.jsx                  # React Router route definitions
 │   ├── App.css                           # Global reset styles
@@ -154,30 +165,54 @@ The cinematic intro sequence that greets users on first load:
 - Mobile hamburger menu with full-height slide-in drawer (`Menu` / `X` icons from Lucide)
 
 ### `Home.jsx` (Hero)
-- Neon blue aura blob with infinite scale-pulse animation and mouse-tracking parallax
-- Staggered content reveal: title → subtitle → CTA buttons
-- Three CTA buttons: **Register Now** (links to Wings 2K26), **View Problem Statement**, **Rulebook**
-- Subtle grid-pattern background overlay
+- Full-viewport hero with **background video** (`tanjiro.mp4`), dark overlay, and radial gradient vignette
+- Staggered content reveal: title → subtitle → logos → CTA buttons
+- Three CTA buttons: **Round 1 (Online)** (navigates to `/register`), **View Problem Statement** (opens PDF), **Rulebook** (opens PDF)
+- Displays **College** and **Hackslash** logos with hover scale effect
+- Scroll-down indicator with bouncing arrow at bottom
+- Composes full homepage by embedding `Info`, `PrizePool`, `Schedule`, and `Footer` below the hero
+
+### `Info.jsx` (Wings/About)
+- "Code On Vibes" about section describing the hackathon — Chhatrapati Sambhajinagar's first Vibe Coding Hackathon
+- Background video (`luffy-1.mp4`) with dark overlay for text readability
+- Scroll-triggered `fade-up` reveal via GSAP `ScrollTrigger`
+
+### `prizePool.jsx`
+- Highlights the **₹32,500 prize pool** with a gradient gold heading
+- Features a character image (`deku.png`) with glowing purple/yellow ambient background effects
+- Split layout: text content on the left, character image on the right
+- GSAP scroll-triggered slide-in animations (text from left, image from right)
 
 ### `Buttons.jsx` (GlowingButton)
 - Reusable button component with neon-border styling
 - GSAP hover effects: `scale(1.05)`, enhanced `box-shadow` glow, and a subtle glitch-tremor effect
 - Smooth return-to-rest animation on mouse leave
 
-### `Wings.jsx`
-- Displays hackathon wing/category cards in a 3-column responsive grid
-- Scroll-triggered `fade-up` reveal via GSAP `ScrollTrigger`
-- Currently shows "COMING SOON" placeholder cards
-
 ### `Schedule.jsx`
-- Timeline layout with 4 event phases: Opening Ceremony → Hacking Phase 1 → Midnight Mastery → Submissions & Judging
+- Timeline layout with 4 key dates: **3 March** (Problem Statement Release) → **12 March** (PPT Deadline) → **14 March** (Round 1 Results) → **21 March** (Round 2 Hackathon)
+- Background video (`uchiha.mp4`) at low opacity
 - Staggered `fade-slide` left-to-right animation on scroll
 - Hover effect on cards transitions border color to neon-blue
 
-### `Contact.jsx`
-- Centered CTA with email link
-- Scale + opacity reveal animation on scroll
-- Includes the site footer with copyright notice
+### `Contact.jsx` (Page)
+- Full-page contact section with **background video** (`gojo.mp4`) and dark overlay
+- Displays organizer profiles, social media links, and contact information
+- GSAP scroll-triggered scale + opacity reveal animation
+
+### `Register.jsx` (Page)
+- Registration portal with **background video** (`eren.mp4`), dark overlay, and grid pattern
+- GSAP timeline animations for title and staggered button reveals
+- Three action buttons:
+  - **Download PPT Format** — downloads `Code-on-vibes.pptx`
+  - **View Problem Statement** — opens `CODE.pdf` in a new tab
+  - **Submit PPT** — redirects to a Google Form for PPT submission
+- Back navigation via arrow icon
+
+### `Footer.jsx`
+- Venue location info for **Government College of Engineering, Osmanpura**
+- Google Maps link with map-pin icon
+- Gradient neon divider line at the top
+- Copyright notice
 
 ---
 
@@ -217,10 +252,11 @@ The app uses **React Router v7** with `BrowserRouter`:
 
 | Path | Component | Description |
 |---|---|---|
-| `/` | `Home` | Hero + Wings + Schedule |
-| `/wings` | `Wings` | Hackathon categories (standalone) |
-| `/schedule` | `Schedule` | Event timeline (standalone) |
-| `/contact` | `Contact` | Contact information & footer |
+| `/` | `Home` | Hero + Info + Prize Pool + Schedule + Footer |
+| `/wings` | `Info` (`Info.jsx`) | About / hackathon info section (standalone) |
+| `/schedule` | `Schedule` | Event timeline with key dates (standalone) |
+| `/contact` | `Contact` | Contact page with organizers & social links |
+| `/register` | `Register` | Registration portal — PPT download, problem statement, submit |
 
 ---
 
@@ -250,9 +286,13 @@ Uses the ESLint flat config format with:
 
 ## 📝 Roadmap
 
-- [ ] Populate Wings section with actual hackathon categories
-- [ ] Add problem statement PDF viewer
-- [ ] Integrate rulebook content
+- [x] Populate Wings / Info section with hackathon description
+- [x] Add problem statement PDF viewer
+- [x] Integrate rulebook PDF
+- [x] Add prize pool section
+- [x] Add registration portal with PPT submission
+- [x] Add venue location & Google Maps link
+- [x] Background video hero sections across pages
 - [ ] Add event countdown timer
 - [ ] Implement dark/light theme toggle
 - [ ] Add sponsor section
