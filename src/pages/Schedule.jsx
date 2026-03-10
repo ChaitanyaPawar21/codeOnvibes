@@ -6,9 +6,9 @@ import bgVideo from '../assets/scedule/uchiha.mp4';
 gsap.registerPlugin(ScrollTrigger);
 
 const scheduleDates = [
-    '3 March',
-    '12 March',
-    '14 March',
+    '2 March',
+    '16 March',
+    '17 March',
     '21 March'
 ];
 
